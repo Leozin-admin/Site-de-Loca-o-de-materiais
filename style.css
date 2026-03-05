@@ -57,18 +57,6 @@ header p {
     font-weight: 300;
     opacity: 0.9;
 }
-
-/* Seção Hero (Destaque) */
-.hero {
-    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
-                url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center;
-    color: var(--branco);
-    padding: 80px 20px;
-    text-align: center;
-}
-
 .hero h2 {
     font-size: 2rem;
     margin-bottom: 15px;
@@ -251,3 +239,4 @@ footer {
     text-transform: uppercase;
     font-weight: bold;
 }
+
