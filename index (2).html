@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M2F Locação | Equipamentos para Construção</title>
+    <style>
+        :root {
+            --azul-primario: #003366;
+            --azul-secundario: #00509d;
+            --amarelo: #ffcc00;
+            --branco: #ffffff;
+            --cinza-fundo: #f4f7f9;
+            --texto-escuro: #1a1a1a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: var(--cinza-fundo); color: var(--texto-escuro); line-height: 1.6; }
+        .container { width: 90%; max-width: 1100px; margin: auto; }
+
+        header { background: var(--azul-primario); color: var(--branco); padding: 30px 0; text-align: center; border-bottom: 6px solid var(--amarelo); }
+        header h1 { font-size: 2.5rem; text-transform: uppercase; }
+        header p { color: var(--amarelo); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
+        
+        .hero { background: linear-gradient(rgba(0,51,102,0.7), rgba(0,51,102,0.7)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1350&q=80'); 
+                background-size: cover; background-position: center; color: var(--branco); padding: 60px 20px; text-align: center; }
+
+        .equipamentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; padding: 40px 0; }
+        .card { background: var(--branco); border-radius: 8px; overflow: hidden; text-align: center; border-bottom: 5px solid var(--azul-secundario); box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); border-bottom-color: var(--amarelo); }
+        .card img { width: 100%; height: 180px; object-fit: cover; }
+        .card-content { padding: 20px; }
+        .card h3 { color: var(--azul-primario); margin-bottom: 10px; font-size: 1.3rem; }
+
+        .secao-precos { padding: 40px 0; }
+        .titulo-secao { text-align: center; color: var(--azul-primario); margin-bottom: 30px; text-transform: uppercase; }
+        .tabela-wrapper { overflow-x: auto; background: var(--branco); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; min-width: 500px; }
+        th { background: var(--azul-primario); color: var(--amarelo); text-align: left; padding: 15px; text-transform: uppercase; }
+        td { padding: 15px; border-bottom: 1px solid #eee; }
+        tr:hover { background-color: #fff9e6; }
+        .preco-tag { font-weight: bold; color: var(--azul-secundario); }
+
+        .contato { background: var(--azul-primario); color: var(--branco); padding: 60px 20px; text-align: center; margin-top: 50px; }
+        .btn-whatsapp { background: var(--amarelo); color: var(--azul-primario); padding: 18px 35px; text-decoration: none; border-radius: 5px; font-weight: 900; display: inline-block; margin-top: 20px; text-transform: uppercase; }
+        .btn-whatsapp:hover { background: var(--branco); transform: scale(1.05); }
+
+        footer { background: #001a33; color: white; text-align: center; padding: 20px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>M2F LOCAÇÃO</h1>
+            <p>Sua obra com força total</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Equipamentos Profissionais</h2>
+            <p>O suporte que sua construção precisa, com entrega rápida.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="equipamentos">
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6z4e_TP--C71gDtUpR9XNvDgnAKwQ22cGpg&s" alt="Andaimes">
+                <div class="card-content">
+                    <h3>Andaimes</h3>
+                    <p>Segurança e estabilidade para sua equipe em altura.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src= "https://cdn.awsli.com.br/209/209157/produto/221655415/1-ilhnwl90mv.JPG" alt="Betoneiras">
+                <div class="card-content">
+                    <h3>Betoneiras</h3>
+                    <p>400L de alta performance para concreto e massa.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://prustparafusos.cdn.magazord.com.br/img/2024/07/produto/1188/furadeira-de-impacto-12-1100w-220v-2-vel-dewalt.png?ims=fit-in/800x" alt="Furadeiras">
+                <div class="card-content">
+                    <h3>Furadeiras</h3>
+                    <p>Marteletes e perfuradores de impacto profissional.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://lojaagrometal.fbitsstatic.net/img/p/carriola-de-mao-galvanizada-camera-com-bucha-cpg1-canal-88407/274940.jpg?w=400&h=400&v=no-change&qs=ignore" alt="Carriolas">
+                <div class="card-content">
+                    <h3>Carriolas</h3>
+                    <p>Robustez para o transporte de materiais pesados.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-precos">
+            <h2 class="titulo-secao">Tabela de Preços Referencial</h2>
+            <div class="tabela-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Equipamento</th>
+                            <th>Diária</th>
+                            <th>Semanal</th>
+                            <th>Mensal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Andaime Tubular (Peça)</td><td class="preco-tag">R$ 5,00</td><td class="preco-tag">R$ 25,00</td><td class="preco-tag">Consulte</td></tr>
+                        <tr><td>Betoneira 400 Litros</td><td class="preco-tag">R$ 60,00</td><td class="preco-tag">R$ 250,00</td><td class="preco-tag">R$ 650,00</td></tr>
+                        <tr><td>Furadeira</td><td class="preco-tag">R$ 45,00</td><td class="preco-tag">R$ 180,00</td><td class="preco-tag">R$ 400,00</td></tr>
+                        <tr><td>Carriolas</td><td class="preco-tag">R$ 15,00</td><td class="preco-tag">R$ 60,00</td><td class="preco-tag">R$ 120,00</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <section class="contato">
+        <div class="container">
+            <h2>FAÇA SEU PEDIDO AGORA</h2>
+            <p>Atendimento rápido pelo WhatsApp ou Telefone</p>
+            <a href="https://wa.me/5517981298683" class="btn-whatsapp">CHAME AQUI: (17) 98129-8683</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 M2F Locação - Qualidade e Confiança em cada obra.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+:root {
+    --amarelo: #f1c40f;
+    --amarelo-hover: #d4ac0d;
+    --grafite: #2c3e50;
+    --preto-suave: #1a252f;
+    --cinza-claro: #f4f7f6;
+    --branco: #ffffff;
+    --sucesso: #25d366;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--cinza-claro);
+    color: var(--preto-suave);
+    line-height: 1.6;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Espaço entre a logo e o texto */
+    flex-wrap: wrap; /* Para não quebrar em telas muito pequenas */
+}
+
+header {
+    background: var(--azul-primario);
+    color: var(--branco);
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 6px solid var(--amarelo);
+}
+
+.logo-img {
+    width: 80px;  /* Ajuste o tamanho da sua logo aqui */
+    height: auto;
+    border-radius: 5px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.header-textos {
+    text-align: left; /* Alinha o texto à esquerda da logo */
+}
+
+header p {
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* Seção Hero (Destaque) */
+.hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
+                url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: var(--branco);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--amarelo);
+}
+
+/* Container Principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Cards de Equipamentos */
+.equipamentos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 60px 0;
+}
+
+.card {
+    background: var(--branco);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-bottom: 4px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-bottom: 4px solid var(--amarelo);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    color: var(--grafite);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.card p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Diferenciais */
+.diferenciais-container {
+    background: var(--branco);
+    padding: 50px 0;
+    margin-bottom: 50px;
+    border-radius: 15px;
+}
+
+.dif-item h4 {
+    margin: 15px 0 10px;
+    color: var(--grafite);
+}
+
+/* Seção de Contato */
+.contato {
+    background: var(--preto-suave);
+    color: var(--branco);
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+}
+
+.btn-whatsapp {
+    background: var(--sucesso);
+    color: var(--branco);
+    padding: 18px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 25px;
+    font-size: 1.2rem;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background: #1eb956;
+    transform: scale(1.05);
+}
+
+/* Rodapé */
+footer {
+    background: #111;
+    color: #888;
+    text-align: center;
+    padding: 30px;
+    font-size: 0.85rem;
+}
+.navbar {
+    background: var(--azul-primario);
+    padding: 15px 0;
+    border-bottom: 5px solid var(--amarelo);
+    position: sticky; /* Faz a barra ficar fixa no topo ao rolar */
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha logo e texto à esquerda */
+    gap: 15px;
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.logo-topo {
+    width: 60px; /* Tamanho da logo na barra */
+    height: 60px;
+    object-fit: contain;
+    background: var(--amarelo); /* Fundo opcional para destacar a logo */
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.brand-text h1 {
+    color: var(--branco);
+    font-size: 1.8rem;
+    margin: 0;
+    line-height: 1;
+}
+
+.brand-text p {
+    color: var(--amarelo);
+    font-size: 0.8rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.navbar {
+    background: var(--azul-primario);
+    padding: 15px 0;
+    border-bottom: 5px solid var(--amarelo);
+    position: sticky; /* Faz a barra ficar fixa no topo ao rolar */
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha logo e texto à esquerda */
+    gap: 15px;
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.logo-topo {
+    width: 60px; /* Tamanho da logo na barra */
+    height: 60px;
+    object-fit: contain;
+    background: var(--amarelo); /* Fundo opcional para destacar a logo */
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.brand-text h1 {
+    color: var(--branco);
+    font-size: 1.8rem;
+    margin: 0;
+    line-height: 1;
+}
+
+.brand-text p {
+    color: var(--amarelo);
+    font-size: 0.8rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
