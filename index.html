@@ -16,26 +16,37 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
         body { background-color: var(--cinza-fundo); color: var(--texto-escuro); line-height: 1.6; }
-        .container { width: 90%; max-width: 1100px; margin: auto; }
+        .container { width: 95%; max-width: 1200px; margin: auto; }
 
         header { background: var(--azul-primario); color: var(--branco); padding: 30px 0; text-align: center; border-bottom: 6px solid var(--amarelo); }
         header h1 { font-size: 2.5rem; text-transform: uppercase; }
         header p { color: var(--amarelo); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
         
-        .hero { background: linear-gradient(rgba(0,51,102,0.7), rgba(0,51,102,0.7)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1350&q=80'); 
+        .hero { background: linear-gradient(rgba(0,51,102,0.7), rgba(0,51,102,0.7)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1350&q=80');
                 background-size: cover; background-position: center; color: var(--branco); padding: 60px 20px; text-align: center; }
 
-        .equipamentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; padding: 40px 0; }
-        .card { background: var(--branco); border-radius: 8px; overflow: hidden; text-align: center; border-bottom: 5px solid var(--azul-secundario); box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+        /* CONFIGURAÇÃO DE 4 EM 4 */
+        .equipamentos { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+            padding: 40px 0; 
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 992px) { .equipamentos { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .equipamentos { grid-template-columns: 1fr; } }
+
+        .card { background: var(--branco); border-radius: 8px; overflow: hidden; text-align: center; border-bottom: 5px solid var(--azul-secundario); box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-5px); border-bottom-color: var(--amarelo); }
         .card img { width: 100%; height: 180px; object-fit: cover; }
-        .card-content { padding: 20px; }
-        .card h3 { color: var(--azul-primario); margin-bottom: 10px; font-size: 1.3rem; }
+        .card-content { padding: 20px; flex-grow: 1; }
+        .card h3 { color: var(--azul-primario); margin-bottom: 10px; font-size: 1.2rem; }
 
         .secao-precos { padding: 40px 0; }
         .titulo-secao { text-align: center; color: var(--azul-primario); margin-bottom: 30px; text-transform: uppercase; }
         .tabela-wrapper { overflow-x: auto; background: var(--branco); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        table { width: 100%; border-collapse: collapse; min-width: 500px; }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
         th { background: var(--azul-primario); color: var(--amarelo); text-align: left; padding: 15px; text-transform: uppercase; }
         td { padding: 15px; border-bottom: 1px solid #eee; }
         tr:hover { background-color: #fff9e6; }
@@ -51,13 +62,10 @@
 <body>
 
     <header>
-
         <div class="header-textos">
             <h1>M2F LOCAÇÃO</h1>
             <p>Sua obra com força total</p>
         </div>
-    </div>
-</header>
     </header>
 
     <section class="hero">
@@ -77,7 +85,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src= "https://www.francomaqui.com.br/upload/products/87aef584f295ac7965c9a182761f9c3a.jpg" alt="Betoneiras">
+                <img src="https://www.francomaqui.com.br/upload/products/87aef584f295ac7965c9a182761f9c3a.jpg" alt="Betoneiras">
                 <div class="card-content">
                     <h3>Betoneiras</h3>
                     <p>400L de alta performance para concreto e massa.</p>
@@ -91,10 +99,38 @@
                 </div>
             </div>
             <div class="card">
-                <img src="https://lojaagrometal.fbitsstatic.net/img/p/carriola-de-mao-galvanizada-camera-com-bucha-cpg1-canal-88407/274940.jpg?w=400&h=400&v=no-change&qs=ignore" alt="Carriolas">
+                <img src="https://spetindustria.vtexassets.com/arquivos/ids/192546-800-auto?v=639044332208030000&width=800&height=auto&aspect=true" alt="Compactador de Solo">
                 <div class="card-content">
-                    <h3>Carriolas</h3>
-                    <p>Robustez para o transporte de materiais pesados.</p>
+                    <h3>Compactador de Solo</h3>
+                    <p>Ideal para fundações e nivelamento de terrenos.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://www.agrotama.com.br/upload/produtos/18966_detalhes.jpg" alt="Vibrador de Concreto">
+                <div class="card-content">
+                    <h3>Vibrador de Concreto</h3>
+                    <p>Elimina bolhas de ar e garante densidade ao concreto.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://prustparafusos.cdn.magazord.com.br/img/2024/09/produto/1275/design-sem-nome-38.png?ims=fit-in/800x" alt="Lixadeira">
+                <div class="card-content">
+                    <h3>Lixadeira 9" 220v</h3>
+                    <p>Acabamento profissional em superfícies diversas.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://img.mfrural.com.br/api/image?url=https://s3.amazonaws.com/mfrural-produtos-us/80250-908983-82856140-trator-marca-massey-ferguson-modelo-65x.webp&width=266&height=174" alt="Trator">
+                <div class="card-content">
+                    <h3>Trator com Roçadeira</h3>
+                    <p>Limpeza de terrenos com operador especializado.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5mHH4zbnqKH_Bh-bLLW9vrk--Bwkpe3rdVA&s" alt="Retroescavadeira">
+                <div class="card-content">
+                    <h3>Retroescavadeira</h3>
+                    <p>Escavação e carregamento com operador incluso.</p>
                 </div>
             </div>
         </section>
@@ -113,9 +149,13 @@
                     </thead>
                     <tbody>
                         <tr><td>Andaime Tubular (Peça)</td><td class="preco-tag">R$ 5,00</td><td class="preco-tag">R$ 25,00</td><td class="preco-tag">Consulte</td></tr>
-                        <tr><td>Betoneira 400 Litros</td><td class="preco-tag">R$ 60,00</td><td class="preco-tag">R$ 250,00</td><td class="preco-tag">R$ 650,00</td></tr>
-                        <tr><td>Furadeira</td><td class="preco-tag">R$ 45,00</td><td class="preco-tag">R$ 180,00</td><td class="preco-tag">R$ 400,00</td></tr>
-                        <tr><td>Carriolas</td><td class="preco-tag">R$ 15,00</td><td class="preco-tag">R$ 60,00</td><td class="preco-tag">R$ 120,00</td></tr>
+                        <tr><td>Betoneira 400 Litros</td><td class="preco-tag">R$ 60,00</td><td class="preco-tag">R$ 150,00</td><td class="preco-tag">R$ 350,00</td></tr>
+                        <tr><td>Furadeira</td><td class="preco-tag">R$ 50,00</td><td class="preco-tag">R$ 200,00</td><td class="preco-tag">R$ 450,00</td></tr>
+                        <tr><td>Compactador de Solo</td><td class="preco-tag">R$ 100,00</td><td class="preco-tag">R$ 500,00</td><td class="preco-tag">R$ 1400,00</td></tr>
+                        <tr><td>Vibrador de Concreto</td><td class="preco-tag">R$ 80,00</td><td class="preco-tag">R$ 200,00</td><td class="preco-tag">R$ 400,00</td></tr>
+                        <tr><td>Lixadeira 9" 220v</td><td class="preco-tag">R$ 100,00</td><td class="preco-tag">R$ 300,00</td><td class="preco-tag">R$ 600,00</td></tr>
+                        <tr><td>Trator c/ Roçadeira</td><td class="preco-tag" colspan="3">R$ 200,00 por Hora</td></tr>
+                        <tr><td>Retroescavadeira JCB</td><td class="preco-tag" colspan="3">R$ 350,00 por Hora</td></tr>
                     </tbody>
                 </table>
             </div>
