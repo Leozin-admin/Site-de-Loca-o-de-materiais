@@ -38,7 +38,7 @@
         @media (max-width: 992px) { .equipamentos { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 600px) { .equipamentos { grid-template-columns: 1fr; } }
 
-        .card { background: var(--branco); border-radius: 8px; overflow: hidden; text-align: center; border-bottom: 5px solid var(--azul-secundario); box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; display: flex; flex-direction: column; }
+        .card { background: var(--branco); border-radius: 8px; overflow: hidden; text-align: center; border-bottom: 5px solid var(--azul-secundario); box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; display: flex; flex-direction: column; cursor: pointer; }
         .card:hover { transform: translateY(-5px); border-bottom-color: var(--amarelo); }
         .card img { width: 100%; height: 180px; object-fit: cover; }
         .card-content { padding: 20px; flex-grow: 1; }
@@ -58,6 +58,50 @@
         .btn-whatsapp:hover { background: var(--branco); transform: scale(1.05); }
 
         footer { background: #001a33; color: white; text-align: center; padding: 20px; font-size: 0.8rem; }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: var(--branco);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            text-align: center;
+            border-top: 8px solid var(--amarelo);
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        .modal-content img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
+        .modal-content h2 { color: var(--azul-primario); margin-bottom: 15px; }
+        .modal-content p { margin-bottom: 20px; color: #555; }
+        
+        /* Gallery Styles */
+        .modal-gallery { display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
+        .modal-gallery img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid transparent; transition: 0.2s; margin-bottom: 0; }
+        .modal-gallery img:hover { border-color: var(--amarelo); transform: scale(1.1); }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--azul-primario);
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -78,56 +122,72 @@
 
     <div class="container">
         <section class="equipamentos">
-            <div class="card">
+            <div class="card" 
+                 data-details="Nossos andaimes tubulares seguem a norma NR-18, garantindo segurança total para trabalhos em altura. Fáceis de montar e extremamente estáveis para pintura e reboco."
+                 data-images="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6z4e_TP--C71gDtUpR9XNvDgnAKwQ22cGpg&s, https://andaimesurbe.com.br/wp-content/uploads/2019/11/locacao-de-andaime-tubular.jpg, https://images.unsplash.com/photo-1517089534706-33c241fbb8c1?q=80&w=400, https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=400, https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=400, https://images.unsplash.com/photo-1534237710431-e2fc698436d0?q=80&w=400">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6z4e_TP--C71gDtUpR9XNvDgnAKwQ22cGpg&s" alt="Andaimes">
                 <div class="card-content">
                     <h3>Andaimes</h3>
                     <p>Segurança e estabilidade para sua equipe em altura.</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" 
+                 data-details="Betoneira de 400 litros com motor elétrico trifásico ou monofásico. Ideal para grandes volumes de mistura, garantindo homogeneidade ao seu concreto."
+                 data-images="https://www.francomaqui.com.br/upload/products/87aef584f295ac7965c9a182761f9c3a.jpg, https://m.media-amazon.com/images/I/51IOnm4jP8L._AC_SL1000_.jpg, https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=400, https://images.unsplash.com/photo-1503387762-11a0e912b7a3?q=80&w=400, https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?q=80&w=400, https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=400">
                 <img src="https://www.francomaqui.com.br/upload/products/87aef584f295ac7965c9a182761f9c3a.jpg" alt="Betoneiras">
                 <div class="card-content">
                     <h3>Betoneiras</h3>
                     <p>400L de alta performance para concreto e massa.</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" 
+                 data-details="Trabalhamos com marteletes rompedores e perfuradores de marcas líderes (Bosch/DeWalt). Potência necessária para perfurações em concreto e alvenaria."
+                 data-images="https://prustparafusos.cdn.magazord.com.br/img/2024/07/produto/1188/furadeira-de-impacto-12-1100w-220v-2-vel-dewalt.png?ims=fit-in/800x, https://br.bosch-pt.com/br/pt/ocsmedia/optimized/full/726613.png, https://images.unsplash.com/photo-1504148455328-497c5030404c?q=80&w=400, https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=400, https://images.unsplash.com/photo-1586864387917-f5854b8d77bf?q=80&w=400, https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=400">
                 <img src="https://prustparafusos.cdn.magazord.com.br/img/2024/07/produto/1188/furadeira-de-impacto-12-1100w-220v-2-vel-dewalt.png?ims=fit-in/800x" alt="Furadeiras">
                 <div class="card-content">
                     <h3>Furadeiras</h3>
                     <p>Marteletes e perfuradores de impacto.</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" 
+                 data-details="Compactador 'Sapo' a gasolina. Essencial para preparação de fundações, valas e nivelamento de solos granulares ou argilosos."
+                 data-images="https://spetindustria.vtexassets.com/arquivos/ids/192546-800-auto?v=639044332208030000&width=800&height=auto&aspect=true, https://www.petrolinaferramentas.com.br/image/cache/catalog/compactador-de-solo-sapinho-800x800.jpg, https://images.unsplash.com/photo-1574621100236-d25b64cfd647?q=80&w=400, https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=400, https://images.unsplash.com/photo-1590486803833-ffc455fc3616?q=80&w=400, https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=400">
                 <img src="https://spetindustria.vtexassets.com/arquivos/ids/192546-800-auto?v=639044332208030000&width=800&height=auto&aspect=true" alt="Compactador de Solo">
                 <div class="card-content">
                     <h3>Compactador de Solo</h3>
                     <p>Ideal para fundações e nivelamento de terrenos.</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" 
+                 data-details="Vibrador de imersão para eliminar o ar aprisionado no concreto, evitando bicheiras e garantindo uma estrutura muito mais resistente."
+                 data-images="https://www.agrotama.com.br/upload/produtos/18966_detalhes.jpg, https://cdn.awsli.com.br/600x450/33/33941/produto/3890250/78f2df674f.jpg, https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=400, https://images.unsplash.com/photo-1531834350165-220089063768?q=80&w=400, https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=400, https://images.unsplash.com/photo-1579847188804-dcba9e223671?q=80&w=400">
                 <img src="https://www.agrotama.com.br/upload/produtos/18966_detalhes.jpg" alt="Vibrador de Concreto">
                 <div class="card-content">
                     <h3>Vibrador de Concreto</h3>
                     <p>Elimina bolhas de ar e garante densidade ao concreto.</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" 
+                 data-details="Lixadeira de grande porte (9 polegadas) para desbaste e acabamento em superfícies brutas. Alta durabilidade e potência para uso contínuo."
+                 data-images="https://prustparafusos.cdn.magazord.com.br/img/2024/09/produto/1275/design-sem-nome-38.png?ims=fit-in/800x, https://images.tcdn.com.br/img/img_prod/738430/esmerilhadeira_angular_9_pol_2200w_220v_gws_22_230_bosch_1441_1_45f3c63124409384777f72202674e27b.jpg, https://images.unsplash.com/photo-1504148455328-497c5030404c?q=80&w=400, https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=400, https://images.unsplash.com/photo-1586864387917-f5854b8d77bf?q=80&w=400, https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=400">
                 <img src="https://prustparafusos.cdn.magazord.com.br/img/2024/09/produto/1275/design-sem-nome-38.png?ims=fit-in/800x" alt="Lixadeira">
                 <div class="card-content">
                     <h3>Lixadeira 9" 220v</h3>
                     <p>Acabamento profissional em superfícies diversas.</p>
                 </div>
             </div>
-            <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0ARCOki9xY0apkfJBEM6z1AFIo_kNtrpdEg&s" alt="Trator">
+            <div class="card" 
+                 data-details="Serviço completo de limpeza de terrenos. O trator acompanha roçadeira industrial e operador experiente. Cobrança por hora de trabalho."
+                 data-images="https://www.autoentusiastas.com.br/ae/wp-content/uploads/2016/10/MASSEY-50X-MONOBLOCO-1.jpg, https://img.olx.com.br/thumbs250x250/77/774418855581907.jpg, https://images.unsplash.com/photo-1508450859948-4e04f9ad050d?q=80&w=400, https://images.unsplash.com/photo-1590486803833-ffc455fc3616?q=80&w=400, https://images.unsplash.com/photo-1530263363370-69541b9656d0?q=80&w=400, https://images.unsplash.com/photo-1592911355452-f47053521d09?q=80&w=400">
+                <img src="https://www.autoentusiastas.com.br/ae/wp-content/uploads/2016/10/MASSEY-50X-MONOBLOCO-1.jpg" alt="Trator">
                 <div class="card-content">
                     <h3>Trator com Roçadeira</h3>
                     <p>Limpeza de terrenos com operador especializado.</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" 
+                 data-details="Retroescavadeira JCB 3CX preparada para escavação de valas, carregamento de caminhões e nivelamento. Inclui operador e combustível."
+                 data-images="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5mHH4zbnqKH_Bh-bLLW9vrk--Bwkpe3rdVA&s, https://www.jcb.com/pt-br/-/media/products/backhoe-loaders/3cx/jcb-3cx-backhoe-loader-standard-1.jpg, https://images.unsplash.com/photo-1579847188804-dcba9e223671?q=80&w=400, https://images.unsplash.com/photo-1530263363370-69541b9656d0?q=80&w=400, https://images.unsplash.com/photo-1508450859948-4e04f9ad050d?q=80&w=400, https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?q=80&w=400">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5mHH4zbnqKH_Bh-bLLW9vrk--Bwkpe3rdVA&s" alt="Retroescavadeira">
                 <div class="card-content">
                     <h3>Retroescavadeira</h3>
@@ -174,6 +234,51 @@
     <footer>
         <p>&copy; 2026 M2F Locação - Qualidade e Confiança em cada obra.</p>
     </footer>
+
+    <!-- Modal para Mais Informações -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img id="modal-img" src="" alt="Equipamento">
+            <div id="modal-gallery" class="modal-gallery"></div>
+            <h2 id="modal-title">Título</h2>
+            <p id="modal-desc"></p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("infoModal");
+        const cards = document.querySelectorAll(".card");
+        const closeBtn = document.querySelector(".close-btn");
+        const modalImg = document.getElementById("modal-img");
+        const modalGallery = document.getElementById("modal-gallery");
+
+        cards.forEach(card => {
+            card.addEventListener("click", () => {
+                const title = card.querySelector("h3").innerText;
+                const details = card.getAttribute("data-details");
+                const images = card.getAttribute("data-images").split(",");
+
+                document.getElementById("modal-title").innerText = title;
+                document.getElementById("modal-desc").innerText = details;
+                modalImg.src = images[0].trim();
+
+                // Gerar miniaturas
+                modalGallery.innerHTML = "";
+                images.forEach(imgSrc => {
+                    const thumb = document.createElement("img");
+                    thumb.src = imgSrc.trim();
+                    thumb.onclick = (e) => { e.stopPropagation(); modalImg.src = thumb.src; };
+                    modalGallery.appendChild(thumb);
+                });
+
+                modal.style.display = "flex";
+            });
+        });
+
+        closeBtn.onclick = () => modal.style.display = "none";
+        window.onclick = (event) => { if (event.target == modal) modal.style.display = "none"; };
+    </script>
 
 </body>
 </html>
